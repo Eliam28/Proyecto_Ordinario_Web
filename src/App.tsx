@@ -2,33 +2,30 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import PokemonCard from "./Componentes/PokemonCard";
 import type { PokemonApi } from "./PokemonApi";
+
 function App() {
   const [pokemonInfo, setPokemonInfo] = useState<PokemonApi[]>([]);
   const URL_BASE = "https://pokeapi.co/api/v2/pokemon/";
 
-  async function busquedaPokemon(id: number) {
+  async function ObtenerTodosLosPokemons() {
     try {
-      const respuesta = await fetch(`${URL_BASE}${id}`);
-      const data: PokemonApi = await respuesta.json();
-      setPokemonInfo((pokeActu) => {
-        const copiaPokeInfo = [...pokeActu];
-        copiaPokeInfo.push(data);
-        return copiaPokeInfo;
-      });
-    } catch (error) {
-      console.error("Error con la respuesta al buscar la info", error);
-    }
-  }
+      const requests = [];
 
-  function ObtenerTodosLosPokemos() {
-    for (let i = 0; i < 20; i++) {
-      busquedaPokemon(i);
+      for (let i = 1; i <= 20; i++) {
+        requests.push(fetch(`${URL_BASE}${i}`).then((r) => r.json()));
+      }
+
+      const resultados: PokemonApi[] = await Promise.all(requests);
+
+      setPokemonInfo(resultados);
+    } catch (error) {
+      console.error("Error al cargar los Pokémon: ", error);
     }
   }
 
   useEffect(() => {
     const cargar = async () => {
-      await ObtenerTodosLosPokemos();
+      await ObtenerTodosLosPokemons();
     };
     cargar();
   }, []);

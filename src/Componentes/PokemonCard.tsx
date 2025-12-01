@@ -1,4 +1,5 @@
 import type { PokemonApi } from "../PokemonApi";
+import "./PokemonCard.css";
 
 interface Props {
   pokemonData: PokemonApi | null;
@@ -22,8 +23,11 @@ function PokemonCard({ pokemonData }: Props) {
           className="ImagendelPokemon"
         />
         <div className="InfoBasicaPokemon">
-          <h2>Nombre: {pokemonData.name}</h2>
+          <h2>{pokemonData.name}</h2>
           <p>Id: {pokemonData.id}</p>
+        </div>
+        <div className="botones">
+          <button>Ver</button>
         </div>
       </div>
       ;
