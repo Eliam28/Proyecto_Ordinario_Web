@@ -26,9 +26,6 @@ function PokemonCard({ pokemonData }: Props) {
           <h2>{pokemonData.name}</h2>
           <p>Id: {pokemonData.id}</p>
         </div>
-        <div className="botones">
-          <button>Ver</button>
-        </div>
       </div>
       ;
     </>
