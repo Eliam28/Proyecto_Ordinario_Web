@@ -1,0 +1,45 @@
+.Carta_pokemon {
+  background: #ffffff10;
+  border-radius: 20px;
+  border: 2px solid #ffffff30;
+  padding: 20px;
+  width: 100%;
+  max-width: 240px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  box-shadow: 0px 4px 10px #00000040;
+  backdrop-filter: blur(10px);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.Carta_pokemon:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 6px 15px #00000060;
+}
+
+/* Imagen */
+.ImagendelPokemon {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+/* Información básica */
+.InfoBasicaPokemon {
+  text-align: center;
+}
+
+.InfoBasicaPokemon h2 {
+  font-size: 1.4rem;
+  text-transform: capitalize;
+  margin-bottom: 5px;
+}
+
+.InfoBasicaPokemon p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
