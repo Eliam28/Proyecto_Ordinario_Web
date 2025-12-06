@@ -5,6 +5,8 @@ import type { PokemonApi } from "./PokemonApi";
 
 function App() {
   const [pokemonInfo, setPokemonInfo] = useState<PokemonApi[]>([]);
+  const [search, setSearch] = useState("");
+
   const URL_BASE = "https://pokeapi.co/api/v2/pokemon/";
 
   async function ObtenerTodosLosPokemons() {
@@ -30,12 +32,29 @@ function App() {
     cargar();
   }, []);
 
+  const pokemonsFiltrados = pokemonInfo.filter((p) =>
+    p.name.toLowerCase().includes(search.toLowerCase())
+  );
+
   return (
     <>
       <h1>Pokedex</h1>
+      <input
+        type="text"
+        placeholder="Busca un Pokémon..."
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+        style={{
+          padding: "10px",
+          width: "250px",
+          marginBottom: "20px",
+          fontSize: "16px"
+        }}
+      />
+
       <div className="ListaDePokemon">
         <div className="PokemonCards">
-          {pokemonInfo.map((pokemon, index) => (
+          {pokemonsFiltrados.map((pokemon, index) => (
             <PokemonCard key={index} pokemonData={pokemon} />
           ))}
         </div>
