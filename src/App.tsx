@@ -37,29 +37,27 @@ function App() {
   );
 
   return (
-    <>
+    <div className="App">
       <h1>Pokedex</h1>
       <input
         type="text"
         placeholder="Busca un Pokémon..."
         value={search}
         onChange={(e) => setSearch(e.target.value)}
-        style={{
-          padding: "10px",
-          width: "250px",
-          marginBottom: "20px",
-          fontSize: "16px"
-        }}
+        className="search-input"
       />
 
       <div className="ListaDePokemon">
         <div className="PokemonCards">
+          {pokemonsFiltrados.length === 0 && (
+            <p className="no-results">No hay resultados</p>
+          )}
           {pokemonsFiltrados.map((pokemon, index) => (
             <PokemonCard key={index} pokemonData={pokemon} />
           ))}
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

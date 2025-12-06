@@ -27,7 +27,6 @@ function PokemonCard({ pokemonData }: Props) {
           <p>Id: {pokemonData.id}</p>
         </div>
       </div>
-      ;
     </>
   );
 }
