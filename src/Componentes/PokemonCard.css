@@ -1,45 +1,96 @@
 .Carta_pokemon {
-  background: #ffffff10;
-  border-radius: 20px;
-  border: 2px solid #ffffff30;
-  padding: 20px;
+  position: relative;
   width: 100%;
-  max-width: 240px;
-
+  min-height: 140px;
+  background: white;
+  border: 4px solid #8a8a8a;
+  border-radius: 15px;
+  box-sizing: border-box;
+  padding: 15px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  box-shadow: 0px 4px 10px #00000040;
-  backdrop-filter: blur(10px);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  gap: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease;
 }
 
 .Carta_pokemon:hover {
-  transform: translateY(-5px);
-  box-shadow: 0px 6px 15px #00000060;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 /* Imagen */
-.ImagendelPokemon {
+.pokemon-imagen-container {
+  flex-shrink: 0;
   width: 140px;
   height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ImagendelPokemon {
+  width: 100%;
+  height: 100%;
   object-fit: contain;
-  margin-bottom: 15px;
+  image-rendering: pixelated;
 }
 
-/* Información básica */
-.InfoBasicaPokemon {
-  text-align: center;
+/* Grid de información en 4 columnas */
+.pokemon-info-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 15px;
+  align-items: flex-start;
+  z-index: 1;
+  position: relative;
+  width: 100%;
+  grid-auto-rows: auto;
 }
 
-.InfoBasicaPokemon h2 {
-  font-size: 1.4rem;
-  text-transform: capitalize;
-  margin-bottom: 5px;
+.columna-izquierda,
+.columna-centro,
+.columna-derecha,
+.columna-derecha-extra {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  z-index: 1;
 }
 
-.InfoBasicaPokemon p {
+.pokemon-info-grid p {
+  margin: 2px 0;
   font-size: 1.1rem;
-  opacity: 0.9;
+  line-height: 1.3;
+  color: #000 !important;
+  font-weight: normal;
+}
+
+.pokemon-info-grid strong {
+  font-weight: 700;
+  color: #000 !important;
+}
+
+.pokemon-info-grid ul {
+  margin: 2px 0;
+  padding-left: 20px;
+  font-size: 1.1rem;
+  list-style-type: disc;
+  color: #000;
+}
+
+.pokemon-info-grid ol {
+  margin: 2px 0;
+  padding-left: 20px;
+  font-size: 1.1rem;
+  list-style-type: decimal;
+  color: #000;
+}
+
+.pokemon-info-grid li {
+  text-transform: capitalize;
+  margin: 2px 0;
+  line-height: 1.2;
+  color: #000 !important;
+  font-size: 1.1rem;
 }

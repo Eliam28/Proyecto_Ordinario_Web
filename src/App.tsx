@@ -38,6 +38,11 @@ function App() {
 
   return (
     <div className="App">
+      <div className="puntos-container">
+        <div className="punto punto-rojo"></div>
+        <div className="punto punto-amarillo"></div>
+        <div className="punto punto-verde"></div>
+      </div>
       <h1>Pokedex</h1>
       <input
         type="text"
