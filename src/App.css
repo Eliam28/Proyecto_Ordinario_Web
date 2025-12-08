@@ -5,17 +5,18 @@
   min-height: auto;
   padding: 0;
   margin: 0 auto;
-  background: linear-gradient(180deg, #d03056 240px, #eefcea 240px);
+  background: #d03056;
   position: relative;
   display: flex;
   flex-direction: column;
   box-shadow: 0 10px 0px #77000a;
+  padding-bottom: 30px;
 }
 
 /* Cruz direccional */
 .App::after {
   content: "";
-  position: absolute;
+  position: fixed;
   left: 30px;
   top: 30px;
   width: 50px;
@@ -35,7 +36,27 @@
     0% 40%,
     40% 40%
   );
-  z-index: 2;
+  z-index: 101;
+}
+
+/* Header Sticky */
+.header-sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: #d03056;
+  padding-bottom: 15px;
+  width: 100vw;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  box-shadow: 0 6px 0 #77000a;
+  min-height: 170px;
+  max-height: 170px;
+  flex-shrink: 0;
 }
 
 /* Título */
@@ -50,7 +71,7 @@ h1 {
     -1px 1px 0 #3b4cca, 1px 1px 0 #3b4cca;
   font-weight: bold;
   letter-spacing: 3px;
-  font-family: "Pokemon", "Arial Black", sans-serif;
+  font-family: "Pixelify Sans", "Pokemon", "Arial Black", sans-serif;
   z-index: 2;
   padding-bottom: 15px;
   width: 95%;
@@ -58,15 +79,25 @@ h1 {
   box-sizing: border-box;
 }
 
+/* Logo Pokédex */
+.logo-pokedex {
+  display: block;
+  margin: 15px auto 1px auto;
+  max-width: 200px;
+  height: auto;
+  z-index: 2;
+  position: relative;
+}
+
 /* Botones decorativos de colores */
 .puntos-container {
-  position: absolute;
+  position: fixed;
   display: flex;
   gap: 15px;
   align-items: center;
   right: 40px;
   top: 35px;
-  z-index: 2;
+  z-index: 101;
 }
 
 .punto {
@@ -92,13 +123,13 @@ h1 {
 /* Barra de búsqueda */
 .search-input {
   display: block;
-  margin: 25px auto 20px auto;
-  padding: 16px 26px;
-  width: 100%;
-  max-width: 1200px;
-  font-size: 18px;
+  margin: 20px auto 20px auto;
+  padding: 12px 20px;
+  width: 90%;
+  max-width: 900px;
+  font-size: 16px;
   border-radius: 50px;
-  border: 6px solid #e0e0e0;
+  border: 5px solid #e0e0e0;
   background: #001540;
   color: rgba(255, 255, 255, 0.4);
   box-sizing: border-box;
@@ -126,9 +157,10 @@ h1 {
   display: flex;
   justify-content: center;
   padding: 24px 26px 32px 26px;
-  margin: 0 auto 32px auto;
+  margin: 180px auto 0 auto;
   background: #eefcea;
   box-sizing: border-box;
+  box-shadow: 0 6px 0 #d03056;
 }
 
 .PokemonCards {
