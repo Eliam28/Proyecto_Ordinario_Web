@@ -36,57 +36,66 @@ function PokemonCard({ pokemonData }: Props) {
   return (
     <>
       <div className="Carta_pokemon">
-        <img
-          src={pokemonData.sprites.front_default}
-          alt={pokemonData.name}
-          className="ImagendelPokemon"
-        />
-        <div className="InfoBasicaPokemon">
-          <p>
-            <strong>Id:</strong> {pokemonData.id}
-          </p>
-          <p>
-            <strong>Nombre:</strong> {pokemonData.name}
-          </p>
-
-          <p>
-            <strong>Tipo:</strong>
-          </p>
-          <ul>
-            {pokemonData.types.map((t) => (
-              <li key={t.type.name}>{t.type.name}</li>
-            ))}
-          </ul>
-
-          <p>
-            <strong>Movimientos:</strong>
-          </p>
-          <ol>
-            {primerosMovimientos.map((m) => (
-              <li key={m.move.name}>{m.move.name}</li>
-            ))}
-          </ol>
-          <p>
-            <strong>Estadísticas:</strong>
-          </p>
-          <p>
-            <strong>Vida:</strong> {vida}
-          </p>
-          <p>
-            <strong>Ataq:</strong> {ataque}
-          </p>
-          <p>
-            <strong>Ataq.Esp:</strong> {ataqueEsp}
-          </p>
-          <p>
-            <strong>Def:</strong> {defensa}
-          </p>
-          <p>
-            <strong>Def.Esp:</strong> {defensaEsp}
-          </p>
-          <p>
-            <strong>Vel:</strong> {velocidad}
-          </p>
+        <div className="pokemon-imagen-container">
+          <img
+            src={pokemonData.sprites.front_default}
+            alt={pokemonData.name}
+            className="ImagendelPokemon"
+          />
+        </div>
+        <div className="pokemon-info-grid">
+          <div className="columna-izquierda">
+            <p>
+              <strong>ID:</strong> {pokemonData.id}
+            </p>
+            <p>
+              <strong>Nombre:</strong> {pokemonData.name}
+            </p>
+            <p>
+              <strong>Tipo:</strong>
+            </p>
+            <ul>
+              {pokemonData.types.map((t) => (
+                <li key={t.type.name}>{t.type.name}</li>
+              ))}
+            </ul>
+          </div>
+          <div className="columna-centro">
+            <p>
+              <strong>Movimientos:</strong>
+            </p>
+            <ol>
+              {primerosMovimientos.map((m) => (
+                <li key={m.move.name}>{m.move.name}</li>
+              ))}
+            </ol>
+          </div>
+          <div className="columna-derecha">
+            <p>
+              <strong>Estadísticas:</strong>
+            </p>
+            <p>
+              <strong>Vida:</strong> {vida}
+            </p>
+            <p>
+              <strong>Ataq:</strong> {ataque}
+            </p>
+            <p>
+              <strong>Ataq. Esp:</strong> {ataqueEsp}
+            </p>
+          </div>
+          <div className="columna-derecha-extra">
+            <p>&nbsp;</p>
+            <p>
+              <strong>Def:</strong> {defensa}
+            </p>
+            <p>
+              <strong>Def. Esp:</strong> {defensaEsp}
+            </p>
+            <p>
+              <strong>Vel:</strong> {velocidad}
+            </p>
+          </div>
         </div>
       </div>
     </>

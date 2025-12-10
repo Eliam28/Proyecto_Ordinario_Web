@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import PokemonCard from "./Componentes/PokemonCard";
 import type { PokemonApi } from "./PokemonApi";
+import pokedexLogo from "./images/pokedex-logo.png";
 
 function App() {
   const [pokemonInfo, setPokemonInfo] = useState<PokemonApi[]>([]);
@@ -38,14 +39,21 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Pokedex</h1>
-      <input
-        type="text"
-        placeholder="Busca un Pokémon..."
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-        className="search-input"
-      />
+      <div className="header-sticky">
+        <div className="puntos-container">
+          <div className="punto punto-rojo"></div>
+          <div className="punto punto-amarillo"></div>
+          <div className="punto punto-verde"></div>
+        </div>
+        <img src={pokedexLogo} alt="Pokédex" className="logo-pokedex" />
+        <input
+          type="text"
+          placeholder="Busca un Pokémon..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          className="search-input"
+        />
+      </div>
 
       <div className="ListaDePokemon">
         <div className="PokemonCards">
