@@ -14,7 +14,7 @@ function App() {
     try {
       const requests = [];
 
-      for (let i = 1; i <= 20; i++) {
+      for (let i = 1; i <= 50; i++) {
         requests.push(fetch(`${URL_BASE}${i}`).then((r) => r.json()));
       }
 
@@ -58,7 +58,7 @@ function App() {
       <div className="ListaDePokemon">
         <div className="PokemonCards">
           {pokemonsFiltrados.length === 0 && (
-            <p className="no-results">No hay resultados</p>
+            <p className="no-results">No hay chat@</p>
           )}
           {pokemonsFiltrados.map((pokemon, index) => (
             <PokemonCard key={index} pokemonData={pokemon} />
